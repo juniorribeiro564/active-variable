@@ -1,0 +1,11 @@
+{
+    "/api-url": {
+        "target": "https://query2.finance.yahoo.com",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api-url": ""
+        }
+    }
+}

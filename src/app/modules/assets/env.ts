@@ -1,0 +1,1 @@
+export const baseURL2 = '/api-url/v8/finance/chart';
