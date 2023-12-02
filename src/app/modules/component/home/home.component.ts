@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActiveService } from '../../../service/active.service';
+import { AssetsService } from '../../../service/asset.service';
 interface DadosTabela {
     dia: string;
     data: string;
@@ -16,11 +16,11 @@ interface DadosTabela {
 export class HomeComponent implements OnInit {
 
     public symbol = '';
-    public activeValueOpen: string = '';
-    public activeValueClose: string = '';
+    public assetValueOpen: string = '';
+    public assetValueClose: string = '';
     public dataSource: any;
     public dados: DadosTabela[] = [];
-    public nameActive: string = '';
+    public nameAsset: string = '';
     public searchTerm: string = '';
 
     // chartData: ChartDataSets[] = [{ data: [], label: 'Valor' }];
@@ -46,14 +46,14 @@ export class HomeComponent implements OnInit {
     // chartType: ChartType = 'line';
 
     constructor(
-        private activeService: ActiveService
+        private assetService: AssetsService
     ) { }
 
     ngOnInit(): void {
     }
 
     public getAction() {
-        this.activeService.addActive(this.searchTerm).subscribe({
+        this.assetService.addAsset(this.searchTerm).subscribe({
             next: (next: any) => {
                 const quoteData = next.chart.result[0].indicators.quote[0].open;
                 for (let i = 0; i < Math.min(30, quoteData.length); i++) {

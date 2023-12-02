@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './modules/component/home/home.component';
-import { ActiveService } from './service/active.service';
+import { AssetsService } from './service/asset.service';
 import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
@@ -23,7 +23,7 @@ import {MatInputModule} from '@angular/material/input';
     MatInputModule,
     MatInputModule
   ],
-  providers: [HomeComponent, ActiveService, MatTableModule, FormsModule, MatFormFieldModule, MatInputModule],
+  providers: [HomeComponent, AssetsService, MatTableModule, FormsModule, MatFormFieldModule, MatInputModule],
   bootstrap: [AppComponent, HomeComponent]
 })
 export class AppModule { }
