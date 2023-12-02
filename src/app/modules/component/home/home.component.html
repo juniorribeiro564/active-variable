@@ -1,44 +1,42 @@
 <div class="grid">
-    <div class="h1-style">
-        <h1>Tabela ações variaveis</h1>
+  <div class="h1-style">
+    <h1>Tabela ações variaveis do ativo {{nameActive}}</h1>
+  </div>
+
+  <div style="margin: 5rem">
+    <mat-form-field>
+      <mat-label *ngIf="searchTerm.length === 0">Search</mat-label>
+      <input matInput [(ngModel)]="searchTerm" placeholder="Type here" />
+    </mat-form-field>
+    <div style="text-align: center;">
+      <button mat-button *ngIf="searchTerm" (click)="getSearch()">SEARCH</button>
     </div>
+  </div>
 
-    <table mat-table dataSource="dataSource" class="mat-elevation-z8">
+  <table>
+    <thead>
+      <tr>
+        <th class="col-xs-3">Dia</th>
+        <th class="col-xs-3">Data</th>
+        <th class="col-xs-3">Valor</th>
+        <th class="col-xs-3">Variação em relação a D-1 (%)</th>
+        <th class="col-xs-3">Variação em relação à primeira data (%)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of dados">
+        <td class="col-xs-3">{{ item.dia }}</td>
+        <td class="col-xs-3">{{ item.data }}</td>
+        <td class="col-xs-3">{{ item.valor }}</td>
+        <td class="col-xs-3">{{ item.variacaoD1 | number: '1.2-2' }}%</td>
+        <td class="col-xs-3">{{ item.variacaoPrimeiraData | number: '1.2-2' }}%</td>
+      </tr>
+    </tbody>
+  </table>
 
-      <!--- Note that these columns can be defined in any order.
-            The actual rendered columns are set as a property on the row definition" -->
-    
-      <!-- Position Column -->
-      <ng-container matColumnDef="position">
-        <th mat-header-cell *matHeaderCellDef> No. </th>
-        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-      </ng-container>
-    
-      <!-- Name Column -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-      </ng-container>
-    
-      <!-- Weight Column -->
-      <ng-container matColumnDef="weight">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-      </ng-container>
-    
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    
-    
-    
-    <!-- Copyright 2023 Google LLC. All Rights Reserved.
-        Use of this source code is governed by an MIT-style license that
-        can be found in the LICENSE file at https://angular.io/license -->
+  <!-- <div style="display: block;">
+    <canvas baseChart datasets="chartData" labels="chartLabels" options="chartOptions" legend="true"
+      chartType="chartType">
+    </canvas>
+  </div> -->
 </div>

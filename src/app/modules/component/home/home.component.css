@@ -11,3 +11,15 @@
 table {
     width: 100%;
 }
+
+mat-form-field {
+    width: 100%;
+  }
+  
+  mat-icon {
+    cursor: pointer;
+  }
+  
+  button {
+    cursor: pointer;
+  }
