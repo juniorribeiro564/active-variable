@@ -5,15 +5,15 @@
 
   <div style="margin: 5rem">
     <mat-form-field>
-      <mat-label *ngIf="searchTerm.length === 0">Search</mat-label>
-      <input matInput [(ngModel)]="searchTerm" placeholder="Type here" />
+      <mat-label style="height: 5rem;" *ngIf="searchTerm.length === 0">Search</mat-label>
+      <input maxlength="8" matInput [(ngModel)]="searchTerm" placeholder="PETR4.SA" />
     </mat-form-field>
     <div style="text-align: center;">
       <button mat-button *ngIf="searchTerm" (click)="getSearch()">SEARCH</button>
     </div>
   </div>
 
-  <table>
+  <table *ngIf="dados.length > 0">
     <thead>
       <tr>
         <th class="col-xs-3">Dia</th>
